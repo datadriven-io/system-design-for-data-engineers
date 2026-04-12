@@ -20,6 +20,17 @@ These questions reward depth in **data flow tradeoffs**, not microservice topolo
 
 This repo is a curated set of long form case studies that prepare you for exactly that kind of round.
 
+## Related repositories
+
+This repo is the **system design specialist**. The companion repos cover the rest of the loop:
+
+- **[data-engineering-interview-handbook](https://github.com/datadriven-io/data-engineering-interview-handbook)** is the **flagship handbook** for the full DE interview loop.
+- **[data-engineering-interview-questions](https://github.com/datadriven-io/data-engineering-interview-questions)** is the **1400+ question bank** for SQL, Python, and schema design rounds.
+- **[data-engineer-interview-prep](https://github.com/datadriven-io/data-engineer-interview-prep)** is an **8 week structured practice schedule**.
+- **[data-engineering-cheatsheet](https://github.com/datadriven-io/data-engineering-cheatsheet)** is the **night before recall reference** including pipeline patterns, Spark, Airflow, dbt, and Kafka quick references.
+- **[awesome-data-engineering-interview](https://github.com/datadriven-io/awesome-data-engineering-interview)** is the **curated resource list**.
+- **[data-engineer-interview-handbook](https://github.com/datadriven-io/data-engineer-interview-handbook)** is the **7 day sprint** version of the handbook.
+
 ## Contents
 
 - [The DE system design framework](#the-de-system-design-framework)
@@ -226,6 +237,40 @@ Have a case study to add? Open a PR with:
 5. The tradeoffs explicitly considered
 
 Worked solutions live in `/case-studies/<slug>/solution.md`. Stub solutions are welcome and will be polished by maintainers.
+
+## Frequently asked questions
+
+### Is system design for data engineers different from software engineering system design?
+
+Yes, very. Software engineering system design is about request paths, microservices, caching layers, and load balancing. Data engineering system design is about data flows: batch vs stream tradeoffs, storage formats, partitioning strategies, idempotency, late data handling, and the operational reality of running a 24/7 pipeline. Asking how to design Twitter is the wrong rehearsal for asking how to design Netflix's viewing history pipeline. This repo focuses entirely on the DE flavor.
+
+### What is the difference between batch and stream processing in interviews?
+
+Batch processes a bounded chunk of data on a schedule. Stream processes an unbounded series of events as they arrive. The interview question is rarely "which is better". It is "given these freshness, volume, and cost constraints, which would you pick and why". Memorize the four numbers (volume, bytes, latency, cost) so you can defend the choice with arithmetic instead of opinion.
+
+### Should I learn Kafka for a data engineering interview?
+
+If you are interviewing for any role that touches event ingestion or streaming, yes. You should be able to explain partitions, consumer groups, offsets, exactly once semantics, and rebalancing. The [Kafka section of the cheatsheet](https://github.com/datadriven-io/data-engineering-cheatsheet#kafka) covers the minimum.
+
+### What is the medallion architecture and why does it matter in interviews?
+
+Medallion is a lakehouse pattern with three layers: bronze (raw landed data), silver (cleaned and conformed), gold (business ready aggregates). It matters in interviews because it gives you a clean way to talk about separation of concerns in a pipeline answer, and because Databricks-shop interviewers will expect you to know it by name. See [Reference architectures](#reference-architectures).
+
+### How do I prepare for a system design interview at a streaming company like Netflix or Uber?
+
+Pick three case studies from the [Streaming and real time](#streaming-and-real-time) section, design each one end to end on paper for 45 minutes, then read the worked solution. Repeat with three more if you have time. Focus on watermarks, late data handling, and the difference between event time and processing time. Both Netflix and Uber expect candidates to talk about exactly once semantics fluently.
+
+### What is the eight beat framework?
+
+A structured rubric for answering any DE system design question: clarify, estimate, pick freshness, pick batch vs stream, pick storage, sketch topology, address failure modes, talk cost and operations. See [The eight beats](#the-eight-beats). Memorize it. Use it as the spine of every answer.
+
+### How is data engineering system design tested at FAANG companies?
+
+Each FAANG company has a slightly different flavor: Netflix focuses on streaming and OLAP at scale, Uber focuses on real time and geo partitioning, Amazon focuses on AWS depth and leadership principles, Google focuses on BigQuery and Dataflow patterns, Meta focuses on Presto and warehouse at scale. Each [company specific guide](#company-specific-patterns) has the details.
+
+### Is this repo free?
+
+Yes. CC BY-SA 4.0. Case studies and solutions can be copied, forked, and republished as long as you credit the source and share derivatives under the same license.
 
 ## License
 
