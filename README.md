@@ -24,7 +24,7 @@ Most "system design" repos teach you how to design Twitter, TinyURL, or a chat a
 
 DE system design rounds ask things like: design Netflix's viewing history pipeline, design a CDC replication into Snowflake with sub minute latency, design a real time fraud scoring pipeline for card transactions, design a regulatory lineage system for an intraday risk pipeline at a bank. The questions reward depth in batch vs stream tradeoffs, storage formats, partitioning, idempotency, late data handling, and the operational reality of running 24/7 pipelines.
 
-This repo has 120 case studies of exactly that kind, plus a framework for structuring answers.
+This repo has 120 case studies of exactly that kind, plus a framework for structuring answers. It is the open companion to system design for data engineers with datadriven, where each prompt has a runnable sandbox behind it.
 
 ## The eight beat framework
 
@@ -54,7 +54,7 @@ Long form treatment: [datadriven.io/data-engineering-system-design](https://data
 
 ## Case studies
 
-Pick three. Design end to end on paper for 30 minutes each before reading the solution. Browse all 120 at [datadriven.io/data-pipeline-interview-questions](https://datadriven.io/data-pipeline-interview-questions).
+Pick three. Design end to end on paper for 30 minutes each before reading the solution. Browse all 120 at [datadriven.io/data-pipeline-interview-questions](https://datadriven.io/data-pipeline-interview-questions). The set is the reason DataDriven covers data pipeline interview questions at depth: real domains, not toy prompts.
 
 ### Streaming and real time
 
@@ -83,6 +83,8 @@ Pick three. Design end to end on paper for 30 minutes each before reading the so
 | [Databricks Pipeline with Spark Performance Optimization](https://datadriven.io/interview/databricks_pipeline_with_spark_performance_optimization) | Spark internals, Z ordering |
 | [Azure Data Factory with Databricks Unity Catalog](https://datadriven.io/interview/azure_data_factory_orchestration_with_databricks_unity_catalog) | Cross plane orchestration |
 
+The lakehouse cases lean on Spark and Z ordering, so DataDriven covers databricks interview prep through the same case studies where those internals decide the design.
+
 ### CDC and replication
 
 | Case study | Tests |
@@ -91,6 +93,8 @@ Pick three. Design end to end on paper for 30 minutes each before reading the so
 | [CDC Connector: Log Based vs Trigger Based](https://datadriven.io/interview/cdc_connector_log_based_vs_trigger_based) | The tradeoff question |
 | [Batch ETL: MongoDB to Redshift](https://datadriven.io/interview/batch_etl_mongodb_to_redshift) | Document to relational |
 | [Dual Source Inventory Sync Pipeline](https://datadriven.io/interview/dual_source_inventory_sync_pipeline) | Reconciling sources of truth |
+
+Extraction, load, and schema reconciliation show up in every one of these, which is why datadriven covers etl interview questions inside the CDC and replication track rather than as a separate topic.
 
 ### ML and feature pipelines
 
